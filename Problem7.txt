@@ -1,0 +1,102 @@
+Problem 7
+Can you overload a method with same return type.? Explain your answer with proper logic.
+
+
+
+answer
+
+
+Method Overloading is a feature that allows a class to have more than one method having the same name, if their argument lists are different.
+
+
+In order to overload a method, the argument lists of the methods must differ in either of these:
+
+1. Number of parameters.
+For example: This is a valid case of overloading
+add(int, int)
+add(int, int, int)
+
+2. Data type of parameters.
+For example:
+add(int, int)
+add(int, float)
+
+3. Sequence of Data type of parameters.
+For example:
+add(int, float)
+add(float, int)
+
+talking about return type of the method, for example if two methods have same name, same parameters and have different return type, then this is not a valid method overloading example. This will throw compilation error.
+eg:
+int add(int, int)
+float add(int, int)
+
+
+
+	LOGIC AND EXAMPLES
+1]
+class DisplayOverloading
+{
+    public void disp(char c)
+    {
+         System.out.println(c);
+    }
+    public void disp(char c, int num)  
+    {
+         System.out.println(c + " "+num);
+    }
+}
+class Sample
+{
+   public static void main(String args[])
+   {
+       DisplayOverloading obj = new DisplayOverloading();
+       obj.disp('a');
+       obj.disp('a',10);
+   }
+}
+
+2]
+class DisplayOverloading2
+{
+    public void disp(char c)
+    {
+        System.out.println(c);
+    }
+    public void disp(int c)
+    {
+       System.out.println(c );
+    }
+}
+
+class Sample2
+{
+    public static void main(String args[])
+    {
+        DisplayOverloading2 obj = new DisplayOverloading2();
+        obj.disp('a');
+        obj.disp(5);
+    }
+}
+
+3]
+class DisplayOverloading3
+{
+   public void disp(char c, int num)
+   {
+       System.out.println("I’m the first definition of method disp");
+   }
+   public void disp(int num, char c)
+   {
+       System.out.println("I’m the second definition of method disp" );
+   }
+}
+class Sample3
+{
+   public static void main(String args[])
+   {
+       DisplayOverloading3 obj = new DisplayOverloading3();
+       obj.disp('x', 51 );
+       obj.disp(52, 'y');
+   }
+}
